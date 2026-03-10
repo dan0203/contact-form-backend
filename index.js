@@ -13,6 +13,10 @@ app.post('/contact-form', (req, res) => {
     }
 });
 
+app.all(/.*/, (req, res) => {
+    res.status(500).json('The route does not exist');
+});
+
 app.listen(process.env.PORT || 3000, () => {
     console.log('Server started');
 });
