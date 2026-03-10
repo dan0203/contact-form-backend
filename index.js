@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Contact = require('./models/Contact');
 
@@ -7,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/contact-form');
+mongoose.connect(process.env.MONGODB_URI);
 
 app.post('/contact-form', async (req, res) => {
     try {
