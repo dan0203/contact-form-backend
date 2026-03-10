@@ -4,12 +4,6 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use((req, res, next) => {
-    console.log('METHOD:', req.method);
-    console.log('URL:', req.originalUrl);
-    console.log('PATH:', req.path);
-    next();
-});
 
 app.post('/contact-form', (req, res) => {
     try {
